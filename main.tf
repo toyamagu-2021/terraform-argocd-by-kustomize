@@ -20,6 +20,6 @@ resource "local_file" "kustomize_base" {
 resource "kubernetes_namespace" "argocd" {
   count = var.create_namespace ? 1 : 0
   metadata {
-    name = "argocd"
+    name = var.argocd_namespace
   }
 }

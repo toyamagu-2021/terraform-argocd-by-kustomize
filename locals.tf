@@ -20,8 +20,16 @@ locals {
   file = {
     kustomize = {
       base = {
-        tftpl = "${local.path.kustomize.base}/${local.filename.kustomize.tftpl}"
-        yaml  = "${local.path.kustomize.base}/${local.filename.kustomize.yaml}"
+        tftpl = format(
+          "%s/%s",
+          local.path.kustomize.base,
+          local.filename.kustomize.tftpl
+        )
+        yaml = format(
+          "%s/%s",
+          local.path.kustomize.base,
+          local.filename.kustomize.yaml
+        )
       }
     }
   }
